@@ -3,6 +3,7 @@ from collections import OrderedDict
 import pandas 
 import math
 import sys
+import time
 
 cols = ['created_at', 
 'sdk_verison', 
@@ -225,9 +226,17 @@ def tf_redshift_format(filename):
     return pandas.DataFrame(modified_df, columns=cols)
 
 if __name__ == '__main__':
+    tic = time.time()
     filename = sys.argv[1]
     modified_df = tf_redshift_format(filename)
 
     modified_df.to_csv('modified_{}'.format(filename), index=False)
+    toc = time.time()
+
+    print """
+    ==============================================
+    tictoc: {}
+    ==============================================
+    """.format(toc-tic)
 
 
