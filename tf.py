@@ -179,47 +179,211 @@ def tf_redshift_format(filename):
         m_row['ad_candidate_2_additional_cvr'] = row['ad_selection_candidates_1_additional__cvr']
         m_row['ad_candidate_2_additional_weight_ecpm'] = row['ad_selection_candidates_1_additional__weight_ecpm']
         m_row['ad_candidate_2_additional_priority'] = row['ad_selection_candidates_1_additional__priority']
-        m_row['interest1'] =  int(row['audience_interest_apps_1'])  if not math.isnan(row['audience_interest_apps_1']) else 0
-        m_row['interest2'] =  int(row['audience_interest_apps_2'])  if not math.isnan(row['audience_interest_apps_2']) else 0 
-        m_row['interest3'] =  int(row['audience_interest_apps_3'])  if not math.isnan(row['audience_interest_apps_3']) else 0 
-        m_row['interest4'] =  int(row['audience_interest_apps_4'])  if not math.isnan(row['audience_interest_apps_4']) else 0 
-        m_row['interest5'] =  int(row['audience_interest_apps_5'])  if not math.isnan(row['audience_interest_apps_5']) else 0 
-        m_row['interest6'] =  int(row['audience_interest_apps_6'])  if not math.isnan(row['audience_interest_apps_6']) else 0 
-        m_row['interest7'] =  int(row['audience_interest_apps_7'])  if not math.isnan(row['audience_interest_apps_7']) else 0 
-        m_row['interest8'] =  int(row['audience_interest_apps_8'])  if not math.isnan(row['audience_interest_apps_8']) else 0 
-        m_row['interest9'] =  int(row['audience_interest_apps_9'])  if not math.isnan(row['audience_interest_apps_9']) else 0 
-        m_row['interest10'] = int(row['audience_interest_apps_10']) if not math.isnan(row['audience_interest_apps_10'])  else 0
-        m_row['interest11'] = int(row['audience_interest_apps_11']) if not math.isnan(row['audience_interest_apps_11'])  else 0
-        m_row['interest12'] = int(row['audience_interest_apps_12']) if not math.isnan(row['audience_interest_apps_12'])  else 0
-        m_row['interest13'] = int(row['audience_interest_apps_13']) if not math.isnan(row['audience_interest_apps_13'])  else 0
-        m_row['interest14'] = int(row['audience_interest_apps_14']) if not math.isnan(row['audience_interest_apps_14'])  else 0
-        m_row['interest15'] = int(row['audience_interest_apps_15']) if not math.isnan(row['audience_interest_apps_15'])  else 0
-        m_row['interest16'] = int(row['audience_interest_apps_16']) if not math.isnan(row['audience_interest_apps_16'])  else 0
-        m_row['interest17'] = int(row['audience_interest_apps_17']) if not math.isnan(row['audience_interest_apps_17'])  else 0
-        m_row['interest18'] = int(row['audience_interest_apps_18']) if not math.isnan(row['audience_interest_apps_18'])  else 0
-        m_row['interest19'] = int(row['audience_interest_apps_19']) if not math.isnan(row['audience_interest_apps_19'])  else 0
-        m_row['interest20'] = int(row['audience_interest_apps_20']) if not math.isnan(row['audience_interest_apps_20'])  else 0
-        m_row['interest21'] = int(row['audience_interest_apps_21']) if not math.isnan(row['audience_interest_apps_21'])  else 0
-        m_row['interest22'] = int(row['audience_interest_apps_22']) if not math.isnan(row['audience_interest_apps_22'])  else 0
-        m_row['interest23'] = int(row['audience_interest_apps_23']) if not math.isnan(row['audience_interest_apps_23'])  else 0
-        m_row['interest24'] = int(row['audience_interest_apps_24']) if not math.isnan(row['audience_interest_apps_24'])  else 0
-        m_row['interest25'] = int(row['audience_interest_apps_25']) if not math.isnan(row['audience_interest_apps_25'])  else 0
-        m_row['interest26'] = int(row['audience_interest_apps_26']) if not math.isnan(row['audience_interest_apps_26'])  else 0
-        m_row['interest27'] = int(row['audience_interest_apps_27']) if not math.isnan(row['audience_interest_apps_27'])  else 0
-        m_row['interest28'] = int(row['audience_interest_apps_28']) if not math.isnan(row['audience_interest_apps_28'])  else 0
-        m_row['interest29'] = int(row['audience_interest_apps_29']) if not math.isnan(row['audience_interest_apps_29'])  else 0
-        m_row['interest30'] = int(row['audience_interest_apps_30']) if not math.isnan(row['audience_interest_apps_30'])  else 0
-        m_row['interest31'] = int(row['audience_interest_apps_31']) if not math.isnan(row['audience_interest_apps_31'])  else 0
-        m_row['interest32'] = int(row['audience_interest_apps_32']) if not math.isnan(row['audience_interest_apps_32'])  else 0
-        m_row['interest33'] = int(row['audience_interest_apps_33']) if not math.isnan(row['audience_interest_apps_33'])  else 0
-        m_row['interest34'] = int(row['audience_interest_apps_34']) if not math.isnan(row['audience_interest_apps_34'])  else 0
-        m_row['interest35'] = int(row['audience_interest_apps_35']) if not math.isnan(row['audience_interest_apps_35'])  else 0
-        m_row['interest36'] = int(row['audience_interest_apps_36']) if not math.isnan(row['audience_interest_apps_36'])  else 0
-        m_row['interest37'] = int(row['audience_interest_apps_37']) if not math.isnan(row['audience_interest_apps_37'])  else 0
-        m_row['interest38'] = int(row['audience_interest_apps_38']) if not math.isnan(row['audience_interest_apps_38'])  else 0
-        m_row['interest39'] = int(row['audience_interest_apps_39']) if not math.isnan(row['audience_interest_apps_39'])  else 0
-        m_row['interest40'] = int(row['audience_interest_apps_40']) if not math.isnan(row['audience_interest_apps_40'])  else 0
-        m_row['interest41'] = int(row['audience_interest_apps_41']) if not math.isnan(row['audience_interest_apps_41'])  else 0
+
+        try:
+            m_row['interest1'] =  int(row['audience_interest_apps_1'])  if not math.isnan(row['audience_interest_apps_1']) else 0
+        except Exception:
+            m_row['interest1'] = 0
+
+        try:
+            m_row['interest2'] =  int(row['audience_interest_apps_2'])  if not math.isnan(row['audience_interest_apps_2']) else 0 
+        except Exception:
+            m_row['interest2'] = 0
+
+        try:
+            m_row['interest3'] =  int(row['audience_interest_apps_3'])  if not math.isnan(row['audience_interest_apps_3']) else 0 
+        except Exception:
+            m_row['interest3'] = 0
+
+        try:
+            m_row['interest4'] =  int(row['audience_interest_apps_4'])  if not math.isnan(row['audience_interest_apps_4']) else 0 
+        except Exception:
+            m_row['interest4'] = 0
+
+        try:
+            m_row['interest5'] =  int(row['audience_interest_apps_5'])  if not math.isnan(row['audience_interest_apps_5']) else 0 
+        except Exception:
+            m_row['interest5'] = 0
+
+        try:
+            m_row['interest6'] =  int(row['audience_interest_apps_6'])  if not math.isnan(row['audience_interest_apps_6']) else 0 
+        except Exception:
+            m_row['interest6'] = 0
+
+        try:
+            m_row['interest7'] =  int(row['audience_interest_apps_7'])  if not math.isnan(row['audience_interest_apps_7']) else 0 
+        except Exception:
+            m_row['interest7'] = 0
+
+        try:
+            m_row['interest8'] =  int(row['audience_interest_apps_8'])  if not math.isnan(row['audience_interest_apps_8']) else 0 
+        except Exception:
+            m_row['interest8'] = 0
+
+        try:
+            m_row['interest9'] =  int(row['audience_interest_apps_9'])  if not math.isnan(row['audience_interest_apps_9']) else 0 
+        except Exception:
+            m_row['interest9'] = 0
+
+        try:
+            m_row['interest10'] = int(row['audience_interest_apps_10']) if not math.isnan(row['audience_interest_apps_10'])  else 0
+        except Exception:
+            m_row['interest10'] = 0
+
+        try:
+            m_row['interest11'] = int(row['audience_interest_apps_11']) if not math.isnan(row['audience_interest_apps_11'])  else 0
+        except Exception:
+            m_row['interest11'] = 0
+
+        try:
+            m_row['interest12'] = int(row['audience_interest_apps_12']) if not math.isnan(row['audience_interest_apps_12'])  else 0
+        except Exception:
+            m_row['interest12'] = 0
+
+        try:
+            m_row['interest13'] = int(row['audience_interest_apps_13']) if not math.isnan(row['audience_interest_apps_13'])  else 0
+        except Exception:
+            m_row['interest13'] = 0
+
+        try:
+            m_row['interest14'] = int(row['audience_interest_apps_14']) if not math.isnan(row['audience_interest_apps_14'])  else 0
+        except Exception:
+            m_row['interest14'] = 0
+
+        try:
+            m_row['interest15'] = int(row['audience_interest_apps_15']) if not math.isnan(row['audience_interest_apps_15'])  else 0
+        except Exception:
+            m_row['interest15'] = 0
+
+        try:
+            m_row['interest16'] = int(row['audience_interest_apps_16']) if not math.isnan(row['audience_interest_apps_16'])  else 0
+        except Exception:
+            m_row['interest16'] = 0
+
+        try:
+            m_row['interest17'] = int(row['audience_interest_apps_17']) if not math.isnan(row['audience_interest_apps_17'])  else 0
+        except Exception:
+            m_row['interest17'] = 0
+
+        try:
+            m_row['interest18'] = int(row['audience_interest_apps_18']) if not math.isnan(row['audience_interest_apps_18'])  else 0
+        except Exception:
+            m_row['interest18'] = 0
+
+        try:
+            m_row['interest19'] = int(row['audience_interest_apps_19']) if not math.isnan(row['audience_interest_apps_19'])  else 0
+        except Exception:
+            m_row['interest19'] = 0
+
+        try:
+            m_row['interest20'] = int(row['audience_interest_apps_20']) if not math.isnan(row['audience_interest_apps_20'])  else 0
+        except Exception:
+            m_row['interest20'] = 0
+
+        try:
+            m_row['interest21'] = int(row['audience_interest_apps_21']) if not math.isnan(row['audience_interest_apps_21'])  else 0
+        except Exception:
+            m_row['interest21'] = 0
+
+        try:
+            m_row['interest22'] = int(row['audience_interest_apps_22']) if not math.isnan(row['audience_interest_apps_22'])  else 0
+        except Exception:
+            m_row['interest22'] = 0
+
+        try:
+            m_row['interest23'] = int(row['audience_interest_apps_23']) if not math.isnan(row['audience_interest_apps_23'])  else 0
+        except Exception:
+            m_row['interest23'] = 0
+
+        try:
+            m_row['interest24'] = int(row['audience_interest_apps_24']) if not math.isnan(row['audience_interest_apps_24'])  else 0
+        except Exception:
+            m_row['interest24'] = 0
+
+        try:
+            m_row['interest25'] = int(row['audience_interest_apps_25']) if not math.isnan(row['audience_interest_apps_25'])  else 0
+        except Exception:
+            m_row['interest25'] = 0
+
+        try:
+            m_row['interest26'] = int(row['audience_interest_apps_26']) if not math.isnan(row['audience_interest_apps_26'])  else 0
+        except Exception:
+            m_row['interest26'] = 0
+
+        try:
+            m_row['interest27'] = int(row['audience_interest_apps_27']) if not math.isnan(row['audience_interest_apps_27'])  else 0
+        except Exception:
+            m_row['interest27'] = 0
+
+        try:
+            m_row['interest28'] = int(row['audience_interest_apps_28']) if not math.isnan(row['audience_interest_apps_28'])  else 0
+        except Exception:
+            m_row['interest28'] = 0
+
+        try:
+            m_row['interest29'] = int(row['audience_interest_apps_29']) if not math.isnan(row['audience_interest_apps_29'])  else 0
+        except Exception:
+            m_row['interest29'] = 0
+
+        try:
+            m_row['interest30'] = int(row['audience_interest_apps_30']) if not math.isnan(row['audience_interest_apps_30'])  else 0
+        except Exception:
+            m_row['interest30'] = 0
+
+        try:
+            m_row['interest31'] = int(row['audience_interest_apps_31']) if not math.isnan(row['audience_interest_apps_31'])  else 0
+        except Exception:
+            m_row['interest31'] = 0
+
+        try:
+            m_row['interest32'] = int(row['audience_interest_apps_32']) if not math.isnan(row['audience_interest_apps_32'])  else 0
+        except Exception:
+            m_row['interest32'] = 0
+
+        try:
+            m_row['interest33'] = int(row['audience_interest_apps_33']) if not math.isnan(row['audience_interest_apps_33'])  else 0
+        except Exception:
+            m_row['interest33'] = 0
+
+        try:
+            m_row['interest34'] = int(row['audience_interest_apps_34']) if not math.isnan(row['audience_interest_apps_34'])  else 0
+        except Exception:
+            m_row['interest34'] = 0
+
+        try:
+            m_row['interest35'] = int(row['audience_interest_apps_35']) if not math.isnan(row['audience_interest_apps_35'])  else 0
+        except Exception:
+            m_row['interest35'] = 0
+
+        try:
+            m_row['interest36'] = int(row['audience_interest_apps_36']) if not math.isnan(row['audience_interest_apps_36'])  else 0
+        except Exception:
+            m_row['interest36'] = 0
+
+        try:
+            m_row['interest37'] = int(row['audience_interest_apps_37']) if not math.isnan(row['audience_interest_apps_37'])  else 0
+        except Exception:
+            m_row['interest37'] = 0
+
+        try:
+            m_row['interest38'] = int(row['audience_interest_apps_38']) if not math.isnan(row['audience_interest_apps_38'])  else 0
+        except Exception:
+            m_row['interest38'] = 0
+
+        try:
+            m_row['interest39'] = int(row['audience_interest_apps_39']) if not math.isnan(row['audience_interest_apps_39'])  else 0
+        except Exception:
+            m_row['interest39'] = 0
+
+        try:
+            m_row['interest40'] = int(row['audience_interest_apps_40']) if not math.isnan(row['audience_interest_apps_40'])  else 0
+        except Exception:
+            m_row['interest40'] = 0
+
+        try:
+            m_row['interest41'] = int(row['audience_interest_apps_41']) if not math.isnan(row['audience_interest_apps_41'])  else 0
+        except Exception:
+            m_row['interest41'] = 0
 
         modified_df.append(m_row)
 
@@ -240,4 +404,25 @@ if __name__ == '__main__':
         ==============================================
         """.format(filename, str(toc-tic))
 
+
+
+# ad_impression_2017-01-04.csv ad_impression_2017-01-05.csv ad_impression_2017-01-06.csv ad_impression_2017-01-07.csv ad_impression_2017-01-08.csv ad_impression_2017-01-09.csv ad_impression_2017-01-10.csv ad_impression_2017-01-11.csv ad_impression_2017-01-12.csv 
+# ad_impression_2017-01-13.csv ad_impression_2017-01-14.csv ad_impression_2017-01-15.csv ad_impression_2017-01-16.csv ad_impression_2017-01-17.csv ad_impression_2017-01-18.csv ad_impression_2017-01-19.csv ad_impression_2017-01-20.csv ad_impression_2017-01-21.csv 
+# ad_impression_2017-01-22.csv ad_impression_2017-01-23.csv ad_impression_2017-01-24.csv ad_impression_2017-01-25.csv ad_impression_2017-01-26.csv ad_impression_2017-01-27.csv ad_impression_2017-01-28.csv ad_impression_2017-01-29.csv ad_impression_2017-01-30.csv ad_impression_2017-01-31.csv
+
+
+# ALTER TABLE `udl`.`tbl_sl_stats_daily_mobile_summary` 
+# ADD COLUMN `deferred_deeplink_install__channel_to_app__ios` INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER `unique_deeplink_launch__website_to_app__android`,
+# ADD COLUMN `deferred_deeplink_install__website_to_app__ios` INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER `deferred_deeplink_install__channel_to_app__ios`, 
+# ADD COLUMN `deferred_deeplink_install__sms_to_app__ios` INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER `deferred_deeplink_install__website_to_app__ios`, 
+# ADD COLUMN `deferred_deeplink_install__channel_to_app__android` INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER `deferred_deeplink_install__sms_to_app__ios`, 
+# ADD COLUMN `deferred_deeplink_install__website_to_app__android` INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER `deferred_deeplink_install__channel_to_app__android`,
+# ADD COLUMN `deferred_deeplink_install__sms_to_app__android` INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER `deferred_deeplink_install__website_to_app__android`,
+# ADD COLUMN `unique_deferred_deeplink_install__channel_to_app__ios` INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER `deferred_deeplink_install__sms_to_app__android`,
+# ADD COLUMN `unique_deferred_deeplink_install__website_to_app__ios` INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER `unique_deferred_deeplink_install__channel_to_app__ios`,
+# ADD COLUMN `unique_deferred_deeplink_install__sms_to_app__ios` INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER `unique_deferred_deeplink_install__website_to_app__ios`,
+# ADD COLUMN `unique_deferred_deeplink_install__channel_to_app__android` INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER `unique_deferred_deeplink_install__sms_to_app__ios`,
+# ADD COLUMN `unique_deferred_deeplink_install__website_to_app__android` INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER `unique_deferred_deeplink_install__channel_to_app__android`,
+# ADD COLUMN `unique_deferred_deeplink_install__sms_to_app__android` INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER `unique_deferred_deeplink_install__website_to_app__android`
+# ALGORITHM = INPLACE;
 
