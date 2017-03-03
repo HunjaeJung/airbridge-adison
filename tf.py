@@ -226,17 +226,18 @@ def tf_redshift_format(filename):
     return pandas.DataFrame(modified_df, columns=cols)
 
 if __name__ == '__main__':
-    tic = time.time()
-    filename = sys.argv[1]
-    modified_df = tf_redshift_format(filename)
 
-    modified_df.to_csv('modified_{}'.format(filename), index=False)
-    toc = time.time()
+    for filename in sys.argv[1:]:
+        tic = time.time()
+        modified_df = tf_redshift_format(filename)
+        modified_df.to_csv('modified_{}'.format(filename), index=False)
+        toc = time.time()
 
-    print """
-    ==============================================
-    tictoc: {}
-    ==============================================
-    """.format(toc-tic)
+        print """
+        ==============================================
+        {}
+        tictoc: {}
+        ==============================================
+        """.format(filename, str(toc-tic))
 
 
